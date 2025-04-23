@@ -1,0 +1,15 @@
+a = 10;
+b = 20;
+c = 15;
+
+print "Number1 : "a;
+print "Number2 : "b;
+print "Number3 : "c;
+
+if (a > b && a > c) {
+    print "Largest number is " a;
+} elif (b > a && b > c) {
+    print "Largest number is " b;
+} else {
+    print "Largest number is " c;
+}

@@ -1,0 +1,12 @@
+arr[0] = 30;
+arr[1] = 90;
+arr[2] = 40;
+
+print "Before Changes : Element 0:" arr[0];
+print "                 Element 1:" arr[1];
+print "                 Element 2:" arr[2];
+
+arr[1] = arr[2];
+print "  After Change : Element 0:" arr[0];
+print "                 Element 1:" arr[1];
+print "                 Element 2:" arr[2];
