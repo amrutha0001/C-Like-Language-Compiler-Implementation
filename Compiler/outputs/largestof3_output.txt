@@ -1,0 +1,170 @@
+
+---*** Lexing ***---
+
+a = 10;
+b = 20;
+c = 15;
+
+print "Number1 : "a;
+print "Number2 : "b;
+print "Number3 : "c;
+
+if (a > b && a > c) {
+    print "Largest number is " a;
+} elif (b > a && b > c) {
+    print "Largest number is " b;
+} else {
+    print "Largest number is " c;
+}
+
+
+---*** Parsing ***---
+
+Shift: ^ 
+Shift: ^ a 
+Shift: ^ a = 
+Shift: ^ a = 10 
+Reduce: ^ a = Atom
+Reduce: ^ a = Expr
+Shift: ^ a = Expr; 
+Reduce: ^ Assn
+Reduce: ^ Stmt
+Shift: ^ Stmtb 
+Shift: ^ Stmtb = 
+Shift: ^ Stmtb = 20 
+Reduce: ^ Stmtb = Atom
+Reduce: ^ Stmtb = Expr
+Shift: ^ Stmtb = Expr; 
+Reduce: ^ StmtAssn
+Reduce: ^ StmtStmt
+Shift: ^ StmtStmtc 
+Shift: ^ StmtStmtc = 
+Shift: ^ StmtStmtc = 15 
+Reduce: ^ StmtStmtc = Atom
+Reduce: ^ StmtStmtc = Expr
+Shift: ^ StmtStmtc = Expr; 
+Reduce: ^ StmtStmtAssn
+Reduce: ^ StmtStmtStmt
+Shift: ^ StmtStmtStmtprint 
+Shift: ^ StmtStmtStmtprint "Number1 : " 
+Shift: ^ StmtStmtStmtprint "Number1 : " a 
+Reduce: ^ StmtStmtStmtprint "Number1 : " Atom
+Reduce: ^ StmtStmtStmtprint "Number1 : " Expr
+Shift: ^ StmtStmtStmtprint "Number1 : " Expr; 
+Reduce: ^ StmtStmtStmtPrnt
+Reduce: ^ StmtStmtStmtStmt
+Shift: ^ StmtStmtStmtStmtprint 
+Shift: ^ StmtStmtStmtStmtprint "Number2 : " 
+Shift: ^ StmtStmtStmtStmtprint "Number2 : " b 
+Reduce: ^ StmtStmtStmtStmtprint "Number2 : " Atom
+Reduce: ^ StmtStmtStmtStmtprint "Number2 : " Expr
+Shift: ^ StmtStmtStmtStmtprint "Number2 : " Expr; 
+Reduce: ^ StmtStmtStmtStmtPrnt
+Reduce: ^ StmtStmtStmtStmtStmt
+Shift: ^ StmtStmtStmtStmtStmtprint 
+Shift: ^ StmtStmtStmtStmtStmtprint "Number3 : " 
+Shift: ^ StmtStmtStmtStmtStmtprint "Number3 : " c 
+Reduce: ^ StmtStmtStmtStmtStmtprint "Number3 : " Atom
+Reduce: ^ StmtStmtStmtStmtStmtprint "Number3 : " Expr
+Shift: ^ StmtStmtStmtStmtStmtprint "Number3 : " Expr; 
+Reduce: ^ StmtStmtStmtStmtStmtPrnt
+Reduce: ^ StmtStmtStmtStmtStmtStmt
+Shift: ^ StmtStmtStmtStmtStmtStmtif 
+Shift: ^ StmtStmtStmtStmtStmtStmtif ( 
+Shift: ^ StmtStmtStmtStmtStmtStmtif ( a 
+Reduce: ^ StmtStmtStmtStmtStmtStmtif ( Atom
+Reduce: ^ StmtStmtStmtStmtStmtStmtif ( Expr
+Shift: ^ StmtStmtStmtStmtStmtStmtif ( Expr> 
+Shift: ^ StmtStmtStmtStmtStmtStmtif ( Expr> b 
+Reduce: ^ StmtStmtStmtStmtStmtStmtif ( Expr> Atom
+Reduce: ^ StmtStmtStmtStmtStmtStmtif ( Expr> Expr
+Reduce: ^ StmtStmtStmtStmtStmtStmtif ( Bexp
+Reduce: ^ StmtStmtStmtStmtStmtStmtif ( Expr
+Shift: ^ StmtStmtStmtStmtStmtStmtif ( Expr&& 
+Shift: ^ StmtStmtStmtStmtStmtStmtif ( Expr&& a 
+Reduce: ^ StmtStmtStmtStmtStmtStmtif ( Expr&& Atom
+Reduce: ^ StmtStmtStmtStmtStmtStmtif ( Expr&& Expr
+Shift: ^ StmtStmtStmtStmtStmtStmtif ( Expr&& Expr> 
+Shift: ^ StmtStmtStmtStmtStmtStmtif ( Expr&& Expr> c 
+Reduce: ^ StmtStmtStmtStmtStmtStmtif ( Expr&& Expr> Atom
+Reduce: ^ StmtStmtStmtStmtStmtStmtif ( Expr&& Expr> Expr
+Reduce: ^ StmtStmtStmtStmtStmtStmtif ( Expr&& Bexp
+Reduce: ^ StmtStmtStmtStmtStmtStmtif ( Expr&& Expr
+Reduce: ^ StmtStmtStmtStmtStmtStmtif ( Bexp
+Reduce: ^ StmtStmtStmtStmtStmtStmtif ( Expr
+Shift: ^ StmtStmtStmtStmtStmtStmtif ( Expr) 
+Reduce: ^ StmtStmtStmtStmtStmtStmtif Pexp
+Reduce: ^ StmtStmtStmtStmtStmtStmtif Expr
+Shift: ^ StmtStmtStmtStmtStmtStmtif Expr{ 
+Shift: ^ StmtStmtStmtStmtStmtStmtif Expr{ print 
+Shift: ^ StmtStmtStmtStmtStmtStmtif Expr{ print "Largest number is " 
+Shift: ^ StmtStmtStmtStmtStmtStmtif Expr{ print "Largest number is " a 
+Reduce: ^ StmtStmtStmtStmtStmtStmtif Expr{ print "Largest number is " Atom
+Reduce: ^ StmtStmtStmtStmtStmtStmtif Expr{ print "Largest number is " Expr
+Shift: ^ StmtStmtStmtStmtStmtStmtif Expr{ print "Largest number is " Expr; 
+Reduce: ^ StmtStmtStmtStmtStmtStmtif Expr{ Prnt
+Reduce: ^ StmtStmtStmtStmtStmtStmtif Expr{ Stmt
+Shift: ^ StmtStmtStmtStmtStmtStmtif Expr{ Stmt} 
+Reduce: ^ StmtStmtStmtStmtStmtStmtCond
+Shift: ^ StmtStmtStmtStmtStmtStmtCondelif 
+Shift: ^ StmtStmtStmtStmtStmtStmtCondelif ( 
+Shift: ^ StmtStmtStmtStmtStmtStmtCondelif ( b 
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondelif ( Atom
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondelif ( Expr
+Shift: ^ StmtStmtStmtStmtStmtStmtCondelif ( Expr> 
+Shift: ^ StmtStmtStmtStmtStmtStmtCondelif ( Expr> a 
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondelif ( Expr> Atom
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondelif ( Expr> Expr
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondelif ( Bexp
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondelif ( Expr
+Shift: ^ StmtStmtStmtStmtStmtStmtCondelif ( Expr&& 
+Shift: ^ StmtStmtStmtStmtStmtStmtCondelif ( Expr&& b 
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondelif ( Expr&& Atom
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondelif ( Expr&& Expr
+Shift: ^ StmtStmtStmtStmtStmtStmtCondelif ( Expr&& Expr> 
+Shift: ^ StmtStmtStmtStmtStmtStmtCondelif ( Expr&& Expr> c 
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondelif ( Expr&& Expr> Atom
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondelif ( Expr&& Expr> Expr
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondelif ( Expr&& Bexp
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondelif ( Expr&& Expr
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondelif ( Bexp
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondelif ( Expr
+Shift: ^ StmtStmtStmtStmtStmtStmtCondelif ( Expr) 
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondelif Pexp
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondelif Expr
+Shift: ^ StmtStmtStmtStmtStmtStmtCondelif Expr{ 
+Shift: ^ StmtStmtStmtStmtStmtStmtCondelif Expr{ print 
+Shift: ^ StmtStmtStmtStmtStmtStmtCondelif Expr{ print "Largest number is " 
+Shift: ^ StmtStmtStmtStmtStmtStmtCondelif Expr{ print "Largest number is " b 
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondelif Expr{ print "Largest number is " Atom
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondelif Expr{ print "Largest number is " Expr
+Shift: ^ StmtStmtStmtStmtStmtStmtCondelif Expr{ print "Largest number is " Expr; 
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondelif Expr{ Prnt
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondelif Expr{ Stmt
+Shift: ^ StmtStmtStmtStmtStmtStmtCondelif Expr{ Stmt} 
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondElif
+Shift: ^ StmtStmtStmtStmtStmtStmtCondElifelse 
+Shift: ^ StmtStmtStmtStmtStmtStmtCondElifelse { 
+Shift: ^ StmtStmtStmtStmtStmtStmtCondElifelse { print 
+Shift: ^ StmtStmtStmtStmtStmtStmtCondElifelse { print "Largest number is " 
+Shift: ^ StmtStmtStmtStmtStmtStmtCondElifelse { print "Largest number is " c 
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondElifelse { print "Largest number is " Atom
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondElifelse { print "Largest number is " Expr
+Shift: ^ StmtStmtStmtStmtStmtStmtCondElifelse { print "Largest number is " Expr; 
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondElifelse { Prnt
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondElifelse { Stmt
+Shift: ^ StmtStmtStmtStmtStmtStmtCondElifelse { Stmt} 
+Reduce: ^ StmtStmtStmtStmtStmtStmtCondElifElse
+Reduce: ^ StmtStmtStmtStmtStmtStmtCtrl
+Reduce: ^ StmtStmtStmtStmtStmtStmtStmt
+Shift: ^ StmtStmtStmtStmtStmtStmtStmt$ 
+Reduce: Unit
+ACCEPT Unit
+
+
+---*** Running ***---
+
+Number1 : 10
+Number2 : 20
+Number3 : 15
+Largest number is 20

@@ -1,0 +1,125 @@
+
+---*** Lexing ***---
+
+marks = 85;
+
+if (marks >= 90) {
+    print "Grade A with marks " marks;
+} elif (marks >= 75) {
+    print "Grade B with marks " marks;
+} elif (marks >= 60) {
+    print "Grade C with marks " marks;
+} else {
+    print "Fail with marks " marks;
+}
+
+
+
+---*** Parsing ***---
+
+Shift: ^ 
+Shift: ^ marks 
+Shift: ^ marks = 
+Shift: ^ marks = 85 
+Reduce: ^ marks = Atom
+Reduce: ^ marks = Expr
+Shift: ^ marks = Expr; 
+Reduce: ^ Assn
+Reduce: ^ Stmt
+Shift: ^ Stmtif 
+Shift: ^ Stmtif ( 
+Shift: ^ Stmtif ( marks 
+Reduce: ^ Stmtif ( Atom
+Reduce: ^ Stmtif ( Expr
+Shift: ^ Stmtif ( Expr>= 
+Shift: ^ Stmtif ( Expr>= 90 
+Reduce: ^ Stmtif ( Expr>= Atom
+Reduce: ^ Stmtif ( Expr>= Expr
+Reduce: ^ Stmtif ( Bexp
+Reduce: ^ Stmtif ( Expr
+Shift: ^ Stmtif ( Expr) 
+Reduce: ^ Stmtif Pexp
+Reduce: ^ Stmtif Expr
+Shift: ^ Stmtif Expr{ 
+Shift: ^ Stmtif Expr{ print 
+Shift: ^ Stmtif Expr{ print "Grade A with marks " 
+Shift: ^ Stmtif Expr{ print "Grade A with marks " marks 
+Reduce: ^ Stmtif Expr{ print "Grade A with marks " Atom
+Reduce: ^ Stmtif Expr{ print "Grade A with marks " Expr
+Shift: ^ Stmtif Expr{ print "Grade A with marks " Expr; 
+Reduce: ^ Stmtif Expr{ Prnt
+Reduce: ^ Stmtif Expr{ Stmt
+Shift: ^ Stmtif Expr{ Stmt} 
+Reduce: ^ StmtCond
+Shift: ^ StmtCondelif 
+Shift: ^ StmtCondelif ( 
+Shift: ^ StmtCondelif ( marks 
+Reduce: ^ StmtCondelif ( Atom
+Reduce: ^ StmtCondelif ( Expr
+Shift: ^ StmtCondelif ( Expr>= 
+Shift: ^ StmtCondelif ( Expr>= 75 
+Reduce: ^ StmtCondelif ( Expr>= Atom
+Reduce: ^ StmtCondelif ( Expr>= Expr
+Reduce: ^ StmtCondelif ( Bexp
+Reduce: ^ StmtCondelif ( Expr
+Shift: ^ StmtCondelif ( Expr) 
+Reduce: ^ StmtCondelif Pexp
+Reduce: ^ StmtCondelif Expr
+Shift: ^ StmtCondelif Expr{ 
+Shift: ^ StmtCondelif Expr{ print 
+Shift: ^ StmtCondelif Expr{ print "Grade B with marks " 
+Shift: ^ StmtCondelif Expr{ print "Grade B with marks " marks 
+Reduce: ^ StmtCondelif Expr{ print "Grade B with marks " Atom
+Reduce: ^ StmtCondelif Expr{ print "Grade B with marks " Expr
+Shift: ^ StmtCondelif Expr{ print "Grade B with marks " Expr; 
+Reduce: ^ StmtCondelif Expr{ Prnt
+Reduce: ^ StmtCondelif Expr{ Stmt
+Shift: ^ StmtCondelif Expr{ Stmt} 
+Reduce: ^ StmtCondElif
+Shift: ^ StmtCondElifelif 
+Shift: ^ StmtCondElifelif ( 
+Shift: ^ StmtCondElifelif ( marks 
+Reduce: ^ StmtCondElifelif ( Atom
+Reduce: ^ StmtCondElifelif ( Expr
+Shift: ^ StmtCondElifelif ( Expr>= 
+Shift: ^ StmtCondElifelif ( Expr>= 60 
+Reduce: ^ StmtCondElifelif ( Expr>= Atom
+Reduce: ^ StmtCondElifelif ( Expr>= Expr
+Reduce: ^ StmtCondElifelif ( Bexp
+Reduce: ^ StmtCondElifelif ( Expr
+Shift: ^ StmtCondElifelif ( Expr) 
+Reduce: ^ StmtCondElifelif Pexp
+Reduce: ^ StmtCondElifelif Expr
+Shift: ^ StmtCondElifelif Expr{ 
+Shift: ^ StmtCondElifelif Expr{ print 
+Shift: ^ StmtCondElifelif Expr{ print "Grade C with marks " 
+Shift: ^ StmtCondElifelif Expr{ print "Grade C with marks " marks 
+Reduce: ^ StmtCondElifelif Expr{ print "Grade C with marks " Atom
+Reduce: ^ StmtCondElifelif Expr{ print "Grade C with marks " Expr
+Shift: ^ StmtCondElifelif Expr{ print "Grade C with marks " Expr; 
+Reduce: ^ StmtCondElifelif Expr{ Prnt
+Reduce: ^ StmtCondElifelif Expr{ Stmt
+Shift: ^ StmtCondElifelif Expr{ Stmt} 
+Reduce: ^ StmtCondElifElif
+Shift: ^ StmtCondElifElifelse 
+Shift: ^ StmtCondElifElifelse { 
+Shift: ^ StmtCondElifElifelse { print 
+Shift: ^ StmtCondElifElifelse { print "Fail with marks " 
+Shift: ^ StmtCondElifElifelse { print "Fail with marks " marks 
+Reduce: ^ StmtCondElifElifelse { print "Fail with marks " Atom
+Reduce: ^ StmtCondElifElifelse { print "Fail with marks " Expr
+Shift: ^ StmtCondElifElifelse { print "Fail with marks " Expr; 
+Reduce: ^ StmtCondElifElifelse { Prnt
+Reduce: ^ StmtCondElifElifelse { Stmt
+Shift: ^ StmtCondElifElifelse { Stmt} 
+Reduce: ^ StmtCondElifElifElse
+Reduce: ^ StmtCtrl
+Reduce: ^ StmtStmt
+Shift: ^ StmtStmt$ 
+Reduce: Unit
+ACCEPT Unit
+
+
+---*** Running ***---
+
+Grade B with marks 85

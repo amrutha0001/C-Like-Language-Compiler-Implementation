@@ -1,0 +1,13 @@
+
+---*** Lexing ***---
+
+
+b = 20;
+
+print "Original Numbers : Number1 : " a;
+print "                   Number2 : " b;
+temp = a;
+a = b;
+b = temp;
+
+print "  After Swapping : Number1 : "` < Unknown token

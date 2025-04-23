@@ -1,0 +1,126 @@
+
+---*** Lexing ***---
+
+num = 1234;
+rev = 0;
+print "Number : " num;
+while (num != 0) {
+    digit = num % 10;
+    rev = rev * 10 + digit;
+    num = num / 10;
+} 
+print "Reversed Number : " rev;
+
+
+
+---*** Parsing ***---
+
+Shift: ^ 
+Shift: ^ num 
+Shift: ^ num = 
+Shift: ^ num = 1234 
+Reduce: ^ num = Atom
+Reduce: ^ num = Expr
+Shift: ^ num = Expr; 
+Reduce: ^ Assn
+Reduce: ^ Stmt
+Shift: ^ Stmtrev 
+Shift: ^ Stmtrev = 
+Shift: ^ Stmtrev = 0 
+Reduce: ^ Stmtrev = Atom
+Reduce: ^ Stmtrev = Expr
+Shift: ^ Stmtrev = Expr; 
+Reduce: ^ StmtAssn
+Reduce: ^ StmtStmt
+Shift: ^ StmtStmtprint 
+Shift: ^ StmtStmtprint "Number : " 
+Shift: ^ StmtStmtprint "Number : " num 
+Reduce: ^ StmtStmtprint "Number : " Atom
+Reduce: ^ StmtStmtprint "Number : " Expr
+Shift: ^ StmtStmtprint "Number : " Expr; 
+Reduce: ^ StmtStmtPrnt
+Reduce: ^ StmtStmtStmt
+Shift: ^ StmtStmtStmtwhile 
+Shift: ^ StmtStmtStmtwhile ( 
+Shift: ^ StmtStmtStmtwhile ( num 
+Reduce: ^ StmtStmtStmtwhile ( Atom
+Reduce: ^ StmtStmtStmtwhile ( Expr
+Shift: ^ StmtStmtStmtwhile ( Expr!= 
+Shift: ^ StmtStmtStmtwhile ( Expr!= 0 
+Reduce: ^ StmtStmtStmtwhile ( Expr!= Atom
+Reduce: ^ StmtStmtStmtwhile ( Expr!= Expr
+Reduce: ^ StmtStmtStmtwhile ( Bexp
+Reduce: ^ StmtStmtStmtwhile ( Expr
+Shift: ^ StmtStmtStmtwhile ( Expr) 
+Reduce: ^ StmtStmtStmtwhile Pexp
+Reduce: ^ StmtStmtStmtwhile Expr
+Shift: ^ StmtStmtStmtwhile Expr{ 
+Shift: ^ StmtStmtStmtwhile Expr{ digit 
+Shift: ^ StmtStmtStmtwhile Expr{ digit = 
+Shift: ^ StmtStmtStmtwhile Expr{ digit = num 
+Reduce: ^ StmtStmtStmtwhile Expr{ digit = Atom
+Reduce: ^ StmtStmtStmtwhile Expr{ digit = Expr
+Shift: ^ StmtStmtStmtwhile Expr{ digit = Expr% 
+Shift: ^ StmtStmtStmtwhile Expr{ digit = Expr% 10 
+Reduce: ^ StmtStmtStmtwhile Expr{ digit = Expr% Atom
+Reduce: ^ StmtStmtStmtwhile Expr{ digit = Expr% Expr
+Reduce: ^ StmtStmtStmtwhile Expr{ digit = Bexp
+Reduce: ^ StmtStmtStmtwhile Expr{ digit = Expr
+Shift: ^ StmtStmtStmtwhile Expr{ digit = Expr; 
+Reduce: ^ StmtStmtStmtwhile Expr{ Assn
+Reduce: ^ StmtStmtStmtwhile Expr{ Stmt
+Shift: ^ StmtStmtStmtwhile Expr{ Stmtrev 
+Shift: ^ StmtStmtStmtwhile Expr{ Stmtrev = 
+Shift: ^ StmtStmtStmtwhile Expr{ Stmtrev = rev 
+Reduce: ^ StmtStmtStmtwhile Expr{ Stmtrev = Atom
+Reduce: ^ StmtStmtStmtwhile Expr{ Stmtrev = Expr
+Shift: ^ StmtStmtStmtwhile Expr{ Stmtrev = Expr* 
+Shift: ^ StmtStmtStmtwhile Expr{ Stmtrev = Expr* 10 
+Reduce: ^ StmtStmtStmtwhile Expr{ Stmtrev = Expr* Atom
+Reduce: ^ StmtStmtStmtwhile Expr{ Stmtrev = Expr* Expr
+Reduce: ^ StmtStmtStmtwhile Expr{ Stmtrev = Bexp
+Reduce: ^ StmtStmtStmtwhile Expr{ Stmtrev = Expr
+Shift: ^ StmtStmtStmtwhile Expr{ Stmtrev = Expr+ 
+Shift: ^ StmtStmtStmtwhile Expr{ Stmtrev = Expr+ digit 
+Reduce: ^ StmtStmtStmtwhile Expr{ Stmtrev = Expr+ Atom
+Reduce: ^ StmtStmtStmtwhile Expr{ Stmtrev = Expr+ Expr
+Reduce: ^ StmtStmtStmtwhile Expr{ Stmtrev = Bexp
+Reduce: ^ StmtStmtStmtwhile Expr{ Stmtrev = Expr
+Shift: ^ StmtStmtStmtwhile Expr{ Stmtrev = Expr; 
+Reduce: ^ StmtStmtStmtwhile Expr{ StmtAssn
+Reduce: ^ StmtStmtStmtwhile Expr{ StmtStmt
+Shift: ^ StmtStmtStmtwhile Expr{ StmtStmtnum 
+Shift: ^ StmtStmtStmtwhile Expr{ StmtStmtnum = 
+Shift: ^ StmtStmtStmtwhile Expr{ StmtStmtnum = num 
+Reduce: ^ StmtStmtStmtwhile Expr{ StmtStmtnum = Atom
+Reduce: ^ StmtStmtStmtwhile Expr{ StmtStmtnum = Expr
+Shift: ^ StmtStmtStmtwhile Expr{ StmtStmtnum = Expr/ 
+Shift: ^ StmtStmtStmtwhile Expr{ StmtStmtnum = Expr/ 10 
+Reduce: ^ StmtStmtStmtwhile Expr{ StmtStmtnum = Expr/ Atom
+Reduce: ^ StmtStmtStmtwhile Expr{ StmtStmtnum = Expr/ Expr
+Reduce: ^ StmtStmtStmtwhile Expr{ StmtStmtnum = Bexp
+Reduce: ^ StmtStmtStmtwhile Expr{ StmtStmtnum = Expr
+Shift: ^ StmtStmtStmtwhile Expr{ StmtStmtnum = Expr; 
+Reduce: ^ StmtStmtStmtwhile Expr{ StmtStmtAssn
+Reduce: ^ StmtStmtStmtwhile Expr{ StmtStmtStmt
+Shift: ^ StmtStmtStmtwhile Expr{ StmtStmtStmt} 
+Reduce: ^ StmtStmtStmtWhil
+Reduce: ^ StmtStmtStmtCtrl
+Reduce: ^ StmtStmtStmtStmt
+Shift: ^ StmtStmtStmtStmtprint 
+Shift: ^ StmtStmtStmtStmtprint "Reversed Number : " 
+Shift: ^ StmtStmtStmtStmtprint "Reversed Number : " rev 
+Reduce: ^ StmtStmtStmtStmtprint "Reversed Number : " Atom
+Reduce: ^ StmtStmtStmtStmtprint "Reversed Number : " Expr
+Shift: ^ StmtStmtStmtStmtprint "Reversed Number : " Expr; 
+Reduce: ^ StmtStmtStmtStmtPrnt
+Reduce: ^ StmtStmtStmtStmtStmt
+Shift: ^ StmtStmtStmtStmtStmt$ 
+Reduce: Unit
+ACCEPT Unit
+
+
+---*** Running ***---
+
+Number : 1234
+Reversed Number : 4321

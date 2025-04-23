@@ -1,0 +1,13 @@
+base = 2;
+exponent = 5;
+result = 1;
+i = 0;
+
+while (i < exponent) {
+    result = result * base;
+    i = i + 1;
+}
+
+print "Base : "base;
+print "Exponent : "exponent;
+print "Result : " result;
