@@ -52,24 +52,25 @@ Compiler/
 
 ## 🚀 Getting Started
 
-### Requirements
+### ✅ Requirements
 
-- A C compiler (e.g., GCC)
-- Basic knowledge of terminal/command-line usage
+- GCC or any standard C compiler
+- Basic familiarity with command-line tools
 
-### Compile and Run
-
-To create `.o` files and compile the project, run the following commands:
-
+### 🛠️ Compilation Instructions
+Open your terminal and run the following commands in the project root:
 ```bash
 mkdir -p obj
 gcc -std=gnu11 -Wall -Werror -c codes/lex.c -o obj/lex.o 
 gcc -std=gnu11 -Wall -Werror -c codes/parse.c -o obj/parse.o
 gcc -std=gnu11 -Wall -Werror -c codes/run.c -o obj/run.o
 gcc -std=gnu11 -Wall -Werror -c codes/main.c -o obj/main.o
-gcc -o interpret obj/lex.o obj/parse.o obj/run.o obj/main.o   
+gcc -o interpret obj/lex.o obj/parse.o obj/run.o obj/main.o
+```
 
-<!--To run the compiled code with example input files:-->
+▶️ Running the Compiler
+Test the compiler using sample inputs:
+```bash
 ./interpret examples/filename.txt
 ./interpret examples/countdigits.txt
 ./interpret examples/factorial.txt  
