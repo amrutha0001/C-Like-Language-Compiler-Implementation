@@ -34,6 +34,8 @@ Compiler Design/
 ├── obj/                    # Object files directory (Created through commands)
 │
 ├── outputs/                # Outputs directory (Created through commands)
+│
+├── project report.pdf
 ```
 
 
