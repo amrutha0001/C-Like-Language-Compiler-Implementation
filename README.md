@@ -4,7 +4,7 @@ This project is a simple C compiler that implements a lexical analyzer for a sub
 
 ## 📂 Directory Structure
 
-Compiler Design/
+```Compiler Design/
 │
 ├── codes/                  # C source files for lexical analyzer, parser, and other logic
 │   ├── lex.c               # Lexical analyzer implementation
@@ -32,7 +32,7 @@ Compiler Design/
 │
 ├── obj/                    # Object files directory (Created through commands)
 │
-├── outputs/                # Outputs directory (Created through commands)
+├── outputs/                # Outputs directory (Created through commands) ```
 
 
 
