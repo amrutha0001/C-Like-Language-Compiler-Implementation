@@ -59,8 +59,7 @@ Compiler Design/
 
 To create `.o` files and compile the project, run the following commands:
 
-```
-bash
+```bash
 mkdir -p obj
 gcc -std=gnu11 -Wall -Werror -c codes/lex.c -o obj/lex.o 
 gcc -std=gnu11 -Wall -Werror -c codes/parse.c -o obj/parse.o
