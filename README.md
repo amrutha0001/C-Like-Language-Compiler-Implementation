@@ -4,7 +4,8 @@ This project is a simple C compiler that implements a lexical analyzer for a sub
 
 ## 📂 Directory Structure
 
-```Compiler Design/
+```
+Compiler Design/
 │
 ├── codes/                  # C source files for lexical analyzer, parser, and other logic
 │   ├── lex.c               # Lexical analyzer implementation
@@ -32,9 +33,8 @@ This project is a simple C compiler that implements a lexical analyzer for a sub
 │
 ├── obj/                    # Object files directory (Created through commands)
 │
-├── outputs/                # Outputs directory (Created through commands) ```
-
-
+├── outputs/                # Outputs directory (Created through commands)
+```
 
 
 ## 📌 Features
@@ -59,7 +59,8 @@ This project is a simple C compiler that implements a lexical analyzer for a sub
 
 To create `.o` files and compile the project, run the following commands:
 
-```bash
+```
+bash
 mkdir -p obj
 gcc -std=gnu11 -Wall -Werror -c codes/lex.c -o obj/lex.o 
 gcc -std=gnu11 -Wall -Werror -c codes/parse.c -o obj/parse.o
@@ -84,8 +85,9 @@ gcc -o interpret obj/lex.o obj/parse.o obj/run.o obj/main.o
 ./interpret examples/array1.txt
 ./interpret examples/array2.txt
 ./interpret examples/array3.txt
+```
 
-📘 Learning Outcomes
+## 📘 Learning Outcomes
 Basics of compiler design and lexical analysis
 
 Practical implementation of tokenization and FSM in C
