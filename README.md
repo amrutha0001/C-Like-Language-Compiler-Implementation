@@ -1,4 +1,4 @@
-# Design and Implementation of a C-like Language Compiler in C
+# C-Like Language Compiler Implementation Using C
 
 This project is a simple C compiler that implements a lexical analyzer for a subset of the C programming language. It reads multi-line user input, categorizes tokens like keywords, identifiers, constants, operators, and punctuation, and outputs detailed token statistics.
 
